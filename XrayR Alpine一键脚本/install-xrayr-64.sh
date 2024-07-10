@@ -2,15 +2,23 @@
 # 更新软件源
 apk update
 # 安装依赖项
-apk add wget unzip openrc
+apk add wget unzip openrc curl jq
+
+# 获取最新版本号
+LATEST_VERSION=$(curl -s https://api.github.com/repos/XrayR-project/XrayR/releases/latest | jq -r .tag_name)
+
 # 下载 XrayR
-wget https://github.com/XrayR-project/XrayR/releases/download/v0.9.0/XrayR-linux-64.zip
+wget https://github.com/XrayR-project/XrayR/releases/download/${LATEST_VERSION}/XrayR-linux-64.zip -O /tmp/XrayR-linux-64.zip
+
 # 解压缩
-unzip XrayR-linux-64.zip -d /etc/XrayR
+unzip /tmp/XrayR-linux-64.zip -d /etc/XrayR
+
 # 添加执行权限
 chmod +x /etc/XrayR/XrayR
+
 # 创建软链接
 ln -s /etc/XrayR/XrayR /usr/bin/XrayR
+
 # 创建 XrayR 服务文件
 cat > /etc/init.d/XrayR <<EOF
 #!/sbin/openrc-run
