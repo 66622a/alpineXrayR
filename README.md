@@ -1,4 +1,4 @@
-# XrayR in Alpine
+# XrayR on Alpine
 
 
 # 适用于Alpine系统的XrayR一键安装脚本
@@ -12,6 +12,10 @@
 arm64位
 
      wget -N https://raw.githubusercontent.com/66622a/alpineXrayR/main/XrayR%20Alpine%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/install-xrayr-arm64.sh && chmod +x install-xrayr-arm64.sh && bash install-xrayr-arm64.sh
+     
+卸载
+
+     wget -N https://raw.githubusercontent.com/66622a/alpineXrayR/main/XrayR%20Alpine%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/uninstall-xrayr.sh && chmod +x uninstall-xrayr.sh && bash uninstall-xrayr.sh
     
 重启XrayR
 
