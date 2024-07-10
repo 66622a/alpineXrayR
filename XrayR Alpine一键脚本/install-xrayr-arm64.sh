@@ -29,7 +29,7 @@ depend() {
 
 start() {
     ebegin "Starting XrayR"
-    start-stop-daemon --start --exec /usr/bin/XrayR --config /etc/XrayR/config.yml
+    start-stop-daemon --start --exec /usr/bin/XrayR -- --config /etc/XrayR/config.yml
     eend $?
 }
 
@@ -43,7 +43,7 @@ restart() {
     ebegin "Restarting XrayR"
     start-stop-daemon --stop --exec /usr/bin/XrayR
     sleep 1
-    start-stop-daemon --start --exec /usr/bin/XrayR --config /etc/XrayR/config.yml
+    start-stop-daemon --start --exec /usr/bin/XrayR -- --config /etc/XrayR/config.yml
     eend $?
 }
 EOF
