@@ -1,6 +1,8 @@
 #!/bin/sh
+
 # 更新软件源
 apk update
+
 # 安装依赖项
 apk add wget unzip openrc curl jq
 
@@ -29,21 +31,21 @@ depend() {
 
 start() {
     ebegin "Starting XrayR"
-    start-stop-daemon --start --exec /usr/bin/XrayR -- --config /etc/XrayR/config.yml
+    start-stop-daemon --start --exec /usr/bin/XrayR -- --config /etc/XrayR/config.yml > /dev/null 2>&1
     eend $?
 }
 
 stop() {
     ebegin "Stopping XrayR"
-    start-stop-daemon --stop --exec /usr/bin/XrayR
+    start-stop-daemon --stop --exec /usr/bin/XrayR > /dev/null 2>&1
     eend $?
 }
 
 restart() {
     ebegin "Restarting XrayR"
-    start-stop-daemon --stop --exec /usr/bin/XrayR
+    start-stop-daemon --stop --exec /usr/bin/XrayR > /dev/null 2>&1
     sleep 1
-    start-stop-daemon --start --exec /usr/bin/XrayR -- --config /etc/XrayR/config.yml
+    start-stop-daemon --start --exec /usr/bin/XrayR -- --config /etc/XrayR/config.yml > /dev/null 2>&1
     eend $?
 }
 EOF
